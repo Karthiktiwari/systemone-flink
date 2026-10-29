@@ -1,0 +1,7 @@
+java/target/
+*.class
+.idea/
+.vscode/
+.classpath
+.project
+.settings/
