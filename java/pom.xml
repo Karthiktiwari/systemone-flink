@@ -9,7 +9,7 @@
   <packaging>jar</packaging>
   <name>systemone-flink</name>
   <description>Async typed-decision operator (System One protocol) for candidate logs in Flink streams</description>
-  <url>https://github.com/karthiktiwari061/systemone-flink</url>
+  <url>https://github.com/Karthiktiwari/systemone-flink</url>
 
   <licenses>
     <license>
@@ -21,14 +21,14 @@
 
   <developers>
     <developer>
-      <id>karthiktiwari061</id>
-      <url>https://github.com/karthiktiwari061</url>
+      <id>Karthiktiwari</id>
+      <url>https://github.com/Karthiktiwari</url>
     </developer>
   </developers>
 
   <scm>
-    <connection>scm:git:https://github.com/karthiktiwari061/systemone-flink.git</connection>
-    <url>https://github.com/karthiktiwari061/systemone-flink</url>
+    <connection>scm:git:https://github.com/Karthiktiwari/systemone-flink.git</connection>
+    <url>https://github.com/Karthiktiwari/systemone-flink</url>
   </scm>
 
   <properties>

@@ -1,6 +1,6 @@
 # systemone-flink
 
-[![CI](https://github.com/karthiktiwari061/systemone-flink/actions/workflows/ci.yml/badge.svg)](https://github.com/karthiktiwari061/systemone-flink/actions/workflows/ci.yml)
+[![CI](https://github.com/Karthiktiwari/systemone-flink/actions/workflows/ci.yml/badge.svg)](https://github.com/Karthiktiwari/systemone-flink/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
 **Typed decisions for candidate logs in Apache Flink.** Your job does the cheap detection. `systemone-flink` sends only the candidates to a [System One](#model-servers)-compatible decision model (Jev-style: a choice, a score, or a yes/no probability) and attaches the answers to each event.
