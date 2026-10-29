@@ -1,4 +1,4 @@
-# systemone-flink
+﻿# systemone-flink
 
 [![CI](https://github.com/Karthiktiwari/systemone-flink/actions/workflows/ci.yml/badge.svg)](https://github.com/Karthiktiwari/systemone-flink/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
@@ -45,35 +45,15 @@ DataStream<Decided<Candidate>> decided = DecideAsyncFunction.apply(
 
 `Decision.value()` is the chosen label (choice), the expected level index (score) or p(true) (yes/no). `probabilities()` and `confidence()` are also available. Cache keys must imply the same state, for example a template id. The model server sees up to `parallelism x capacity` concurrent requests.
 
-## Layout
-
-| Package | Contents |
-|---|---|
-| `model` | `DecisionSpec`, `Question`, `Decision` |
-| `engine` | `DecisionEngine`, `DecisionEngineFactory`, `DecisionException` |
-| `systemone` | `SystemOneClient`, `SystemOneCodec`, `Transport` |
-| `flink` | `DecideAsyncFunction`, `Decided<T>` |
-
-Retries cover 429, 5xx and I/O errors. Other 4xx responses fail immediately.
-
 ## Model servers
 
-The model is a string sent as-is to the endpoint you configure; there is no built-in model list. Servers known to implement the endpoint include [Ollama](https://ollama.com) (v0.35+), OpenRouter and [Laya](https://huggingface.co/convaiinnovations/laya).
+Works with any server that implements `POST /v1/systemone`, such as [Ollama](https://ollama.com), OpenRouter and [Laya](https://huggingface.co/convaiinnovations/laya).
 
-## Tests
+## Related work
 
-```
-cd java
-mvn test
-```
-
-The live and pipeline tests run only when their `-D` properties are set (`jev.endpoint`, `jev.model`, and `jev.bgl` for the LogHub CSV pipeline test). See `LiveServerTest` and `BglPipelineTest`.
-
-## Limitations
-
-- Model probabilities are not calibrated. Choose thresholds on your own labelled data.
-- The model can only filter the candidates it receives; it cannot recover anomalies your cheap stage drops.
-- Only tested against Ollama and Laya, on small LogHub samples (BGL, HDFS). TypeSafe Jev and OpenJev were not tested.
+- [HydroJEV](https://arxiv.org/abs/2610.02048): fault attribution with System One models.
+- [Typed Decision Models under Prevalence Shift](https://arxiv.org/abs/2610.26325): calibration and base rates.
+- [HSMLog](https://arxiv.org/abs/2608.29773): small model picks log candidates, a second stage validates.
 
 ## License
 
